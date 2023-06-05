@@ -11,6 +11,23 @@ if (!defined('PHPWG_ROOT_PATH')) die('Hacking attempt!');
 function add_prompts_detail() {
   global $template;
   $js = <<<EOT
+    function insertCopyButton() {
+    var element = document.querySelector('p.imageComment');
+    var button = document.createElement('button');
+    button.textContent = 'Copy';
+    button.addEventListener('click', function() {
+        var content = element.textContent;
+        var tempInput = document.createElement('textarea');
+        tempInput.style.position = 'fixed';
+        tempInput.style.opacity = 0;
+        tempInput.value = content;
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        document.execCommand('copy');
+        document.body.removeChild(tempInput);
+    });
+    element.parentNode.insertBefore(button, element.nextSibling);
+    }
     function insertDiv(id, titleText, contentText) {
         var categories = document.getElementById("Categories");
         var newDiv = document.createElement("div");
@@ -47,6 +64,7 @@ function add_prompts_detail() {
     for (const [key, value] of Object.entries(obj)) {
         insertDiv(key, key, value);
     }
+    insertCopyButton();
   EOT;
   $template->block_footer_script('', $js);
 }
