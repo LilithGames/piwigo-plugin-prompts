@@ -22,7 +22,9 @@ function add_js($content, $smarty)
 
 function add_prompts_detail() {
   global $template;
-  $template->set_prefilter('picture', 'add_js');
+  if ($page['body_id'] == 'thePicturePage') {
+    $template->set_prefilter('picture', 'add_js');
+  }
 }
 
 add_event_handler('init', 'add_prompts_detail');
