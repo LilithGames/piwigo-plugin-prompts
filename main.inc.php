@@ -17,5 +17,5 @@ function add_prompts_detail() {
     console.log("hi hulucc");
   });
   ';
-  $template->add_footer_script($js, 'SCRIPT');
+  $template->assign('FOOTER_SCRIPT', $js);
 }
