@@ -12,15 +12,14 @@ add_event_handler('loc_end_picture', 'add_prompts_detail');
 
 function add_js($content, $smarty)
 {
-    // 在模板的底部添加 JavaScript 代码
-    $js = '
-    <script>
-        console.log("hulucc");
-    </script>
-    ';
+    $search = '</body>';
+    $replace = '
+        <script>
+            console.log("hulucc");
+        </script>
+    </body>';
 
-    // 将 JavaScript 代码添加到模板的底部
-    return $content . $js;
+    return str_replace($search, $replace, $content);
 }
 
 
