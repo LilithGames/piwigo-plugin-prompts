@@ -10,7 +10,7 @@ if (!defined('PHPWG_ROOT_PATH')) die('Hacking attempt!');
 
 add_event_handler('loc_end_picture', 'add_prompts_detail');
 
-function add_js($content, &$smarty)
+function add_js($content, $smarty)
 {
     // 在模板的底部添加 JavaScript 代码
     $js = '
