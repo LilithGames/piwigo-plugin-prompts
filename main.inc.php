@@ -8,14 +8,14 @@ Author: hulucc
 
 if (!defined('PHPWG_ROOT_PATH')) die('Hacking attempt!');
 
-
 function add_prompts_detail() {
-    $js = '
-    <script>
-        console.log("hulucc");
-    </script>
-    '
-    return $js
+  global $template;
+  $js = '
+  $(document).ready(function() {
+    console.log("hi hulucc");
+  });
+  ';
+  $template->block_footer_script('', $js);
 }
 
-add_event_handler('block_footer_script', 'add_prompts_detail');
+add_event_handler('loc_end_picture', 'add_prompts_detail');
