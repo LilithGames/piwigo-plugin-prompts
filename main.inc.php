@@ -10,7 +10,7 @@ if (!defined('PHPWG_ROOT_PATH')) die('Hacking attempt!');
 
 function add_prompts_detail() {
   global $template;
-  $js = <<<EOD
+  $js = <<<EOT
     function insertDiv(id, titleText, contentText) {
         var categories = document.getElementById("Categories");
         var newDiv = document.createElement("div");
@@ -47,7 +47,7 @@ function add_prompts_detail() {
     for (const [key, value] of Object.entries(obj)) {
         console.log(key, value);
     }
-  EOD;
+  EOT;
   $template->block_footer_script('', $js);
 }
 
