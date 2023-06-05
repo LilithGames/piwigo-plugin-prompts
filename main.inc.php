@@ -42,7 +42,7 @@ function add_prompts_detail() {
         return infoObj;
     }
     
-    var data = document.querySelector('p.imageComment').innerText.replaceAll('\n', ',');
+    var data = document.querySelector('p.imageComment').innerText.replaceAll('\\n', ',');
     obj := parseInfo(data)
     for (const [key, value] of Object.entries(obj)) {
         console.log(key, value);
