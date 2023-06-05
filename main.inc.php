@@ -11,9 +11,8 @@ if (!defined('PHPWG_ROOT_PATH')) die('Hacking attempt!');
 function add_prompts_detail() {
   global $template;
   $js = '
-  $(document).ready(function() {
     console.log("hi hulucc");
-  });
+    $(document).ready(function() {});
   ';
   $template->block_footer_script('', $js);
 }
